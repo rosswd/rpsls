@@ -1,7 +1,7 @@
 /*
  * RPSLS by Ross Ward 2015
  * micward2[at]gmail[dot]com
-/*
+*/
 
 // Players and Weapons
 var human    = prompt("Choose rock, paper, scissors, lizard or spock:");
@@ -36,12 +36,12 @@ function inArray(needle, haystack) {
 
 inArray(human, weapons);
 
-// Announce weapons chosen summary
+// Announce weapons chosen with a summary
 alert("Human: " + human + "\n" + "Computer: " + computer);
 
-// Declare score variables
-var human_score = 0;
-var comp_score  = 0;
+// Declare score variables, set to 0
+var humanScore = 0;
+var compScore  = 0;
 
 // Combinations where particular weapons lose
 var rock_loses     = ['spock', 'paper'];  // if rock draws spock OR paper he loses
@@ -50,64 +50,65 @@ var scissors_loses = ['rock', 'spock'];
 var lizard_loses   = ['rock', 'scissors'];
 var spock_loses    = ['lizard', 'paper'];
 
-// Determine Winner
+// Main logic to determine Winner
 if (human === computer) {
-	alert("Tie");
+    alert("Tie");
 }
 
 if (human === 'rock') {
     if (inArray(computer, rock_loses)) {
         alert("Computer wins");
-        comp_score += 1;
+        compScore += 1;
     } else {
         alert("User wins");
-        human_score += 1;
+        humanScore += 1;
     }
 }
 
 if (human === 'paper') {
     if (inArray(computer, paper_loses)) {
         alert("Computer wins");
-        comp_score += 1;
+        compScore += 1;
     } else {
         alert("User wins");
-        human_score += 1;
+        humanScore += 1;
     }
 }
 
 if (human === 'scissors') {
     if (inArray(computer, scissors_loses)) {
         alert("Computer wins");
-        comp_score += 1;
+        compScore += 1;
     } else {
         alert("User wins");
-        human_score += 1;
+        humanScore += 1;
     }
 }
 
 if (human === 'lizard') {
     if (inArray(computer, lizard_loses)) {
         alert("Computer wins");
-        comp_score += 1;
+        compScore += 1;
     } else {
         alert("User wins");
-        human_score += 1;
+        humanScore += 1;
     }
 }
 
 if (human === 'spock') {
     if (inArray(computer, spock_loses)) {
         alert("Computer wins");
-        comp_score += 1;
+        compScore += 1;
     } else {
         alert("User wins");
-        human_score += 1;
+        humanScore += 1;
     }
 }
 
-if (human_score > comp_score) {
+// Logic to announce the Winner
+if (humanScore > compScore) {
     alert("User wins game!");
-} else if (human_score === comp_score) {
+} else if (humanScore === compScore) {
     alert("Game is tied!");
 } else {
     alert("Computer wins game!");
