@@ -56,53 +56,23 @@ if (human === computer) {
 }
 
 if (human === 'rock') {
-    if (inArray(computer, rock_loses)) {
-        alert("Computer wins");
-        compScore += 1;
-    } else {
-        alert("User wins");
-        humanScore += 1;
-    }
+    inArray(computer, rock_loses) ? compScore += 1 : humanScore +=1;
 }
 
 if (human === 'paper') {
-    if (inArray(computer, paper_loses)) {
-        alert("Computer wins");
-        compScore += 1;
-    } else {
-        alert("User wins");
-        humanScore += 1;
-    }
+    inArray(computer, paper_loses ? compScore += 1 : humanScore += 1
 }
 
 if (human === 'scissors') {
-    if (inArray(computer, scissors_loses)) {
-        alert("Computer wins");
-        compScore += 1;
-    } else {
-        alert("User wins");
-        humanScore += 1;
-    }
+    inArray(computer, scissors_loses) ? compScore += 1 : humanScore += 1;
 }
 
 if (human === 'lizard') {
-    if (inArray(computer, lizard_loses)) {
-        alert("Computer wins");
-        compScore += 1;
-    } else {
-        alert("User wins");
-        humanScore += 1;
-    }
+    inArray(computer, lizard_loses) ? compScore += 1 : humanScore += 1;
 }
 
 if (human === 'spock') {
-    if (inArray(computer, spock_loses)) {
-        alert("Computer wins");
-        compScore += 1;
-    } else {
-        alert("User wins");
-        humanScore += 1;
-    }
+    inArray(computer, spock_loses) ? compScore += 1 : humanScore += 1;
 }
 
 // Logic to announce the Winner
