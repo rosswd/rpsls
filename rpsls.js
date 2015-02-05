@@ -60,7 +60,7 @@ if (human === 'rock') {
 }
 
 if (human === 'paper') {
-    inArray(computer, paper_loses ? compScore += 1 : humanScore += 1
+    inArray(computer, paper_loses) ? compScore += 1 : humanScore += 1;
 }
 
 if (human === 'scissors') {
@@ -76,11 +76,23 @@ if (human === 'spock') {
 }
 
 // Logic to announce the Winner
-if (humanScore > compScore) {
-    alert("User wins game!");
-} else if (humanScore === compScore) {
-    alert("Game is tied!");
-} else {
-    alert("Computer wins game!");
+//if (humanScore > compScore) {
+//    alert("User wins game!");
+//} else if (humanScore === compScore) {
+//    alert("Game is tied!");
+//} else {
+//    alert("Computer wins game!");
+//}
+
+// Function to get final score
+function finalScore() {
+    if (humanScore > compScore) {
+        alert("User wins game!");
+    } else if (humanScore === compScore) {
+        alert("Game is tied");
+    } else {
+        alert("Computer wins");
+    }
 }
 
+finalScore();
