@@ -7,9 +7,16 @@
 var human    = prompt("Choose rock, paper, scissors, lizard or spock:");
 var computer = Math.random();
 var weapons  = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+var reDigit  = /\d/;
+var reChar   = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
 
-// Downcase input on var human
-human = human.toLowerCase();
+// Sanitize input
+if (human === '' || reDigit.exec(human) || reChar.exec(human)) {
+    alert("Invalid input - Page will now reload!");
+    window.location.reload();
+} else {
+    human = human.toLowerCase();
+}
 
 // Assign weapon to computer based on random value
 if (computer < 0.19) {
@@ -32,7 +39,7 @@ function inArray(needle, haystack) {
         haystack[i] === needle ? true : false;
         i++;
     }
-} 
+}
 
 inArray(human, weapons);
 
@@ -52,26 +59,19 @@ var spock_loses    = ['lizard', 'paper'];
 
 // Main logic to determine Winner
 function calcWinner() {
-    human === computer ? compScore += 0 : humanScore += 0;
-
-    if (human === 'rock') {
-        inArray(computer, rock_loses) ? compScore += 1 : humanScore +=1;
-    }
-
-    if (human === 'paper') {
-        inArray(computer, paper_loses) ? compScore += 1 : humanScore += 1;
-    }
-
-    if (human === 'scissors') {
-        inArray(computer, scissors_loses) ? compScore += 1 : humanScore += 1;
-    }
-
-    if (human === 'lizard') {
-        inArray(computer, lizard_loses) ? compScore += 1 : humanScore += 1;
-    }
-
-    if (human === 'spock') {
-        inArray(computer, spock_loses) ? compScore += 1 : humanScore += 1;
+    if (human === 'rock' && inArray(computer, rock_loses)) {
+        compScore += 1;
+    } else if (human === 'paper' && inArray(computer, paper_loses)) {
+        compScore += 1;
+    } else if (human === 'scissors') {
+        compScore += 1;
+    } else if (human === 'lizard') {
+        compScore += 1;
+    } else if (human === 'spock') {
+        compScore += 1;
+    } else {
+        compScore += 0;
+        humanScore += 0;
     }
 }
 
