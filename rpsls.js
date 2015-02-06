@@ -51,38 +51,31 @@ var lizard_loses   = ['rock', 'scissors'];
 var spock_loses    = ['lizard', 'paper'];
 
 // Main logic to determine Winner
-if (human === computer) {
-    alert("Tie");
+function calcWinner() {
+    human === computer ? compScore += 0 : humanScore += 0;
+
+    if (human === 'rock') {
+        inArray(computer, rock_loses) ? compScore += 1 : humanScore +=1;
+    }
+
+    if (human === 'paper') {
+        inArray(computer, paper_loses) ? compScore += 1 : humanScore += 1;
+    }
+
+    if (human === 'scissors') {
+        inArray(computer, scissors_loses) ? compScore += 1 : humanScore += 1;
+    }
+
+    if (human === 'lizard') {
+        inArray(computer, lizard_loses) ? compScore += 1 : humanScore += 1;
+    }
+
+    if (human === 'spock') {
+        inArray(computer, spock_loses) ? compScore += 1 : humanScore += 1;
+    }
 }
 
-if (human === 'rock') {
-    inArray(computer, rock_loses) ? compScore += 1 : humanScore +=1;
-}
-
-if (human === 'paper') {
-    inArray(computer, paper_loses) ? compScore += 1 : humanScore += 1;
-}
-
-if (human === 'scissors') {
-    inArray(computer, scissors_loses) ? compScore += 1 : humanScore += 1;
-}
-
-if (human === 'lizard') {
-    inArray(computer, lizard_loses) ? compScore += 1 : humanScore += 1;
-}
-
-if (human === 'spock') {
-    inArray(computer, spock_loses) ? compScore += 1 : humanScore += 1;
-}
-
-// Logic to announce the Winner
-//if (humanScore > compScore) {
-//    alert("User wins game!");
-//} else if (humanScore === compScore) {
-//    alert("Game is tied!");
-//} else {
-//    alert("Computer wins game!");
-//}
+calcWinner();
 
 // Function to get final score
 function finalScore() {
