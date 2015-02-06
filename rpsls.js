@@ -13,7 +13,7 @@ var reChar   = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
 // Sanitize input
 if (human === '' || reDigit.exec(human) || reChar.exec(human)) {
     alert("Invalid input - Page will now reload!");
-    window.location.reload();
+    window.location.reload();  // extreme, only temp
 } else {
     human = human.toLowerCase();
 }
@@ -51,23 +51,23 @@ var humanScore = 0;
 var compScore  = 0;
 
 // Combinations where particular weapons lose
-var rock_loses     = ['spock', 'paper'];  // if rock draws spock OR paper he loses
-var paper_loses    = ['lizard', 'scissors'];
-var scissors_loses = ['rock', 'spock'];
-var lizard_loses   = ['rock', 'scissors'];
-var spock_loses    = ['lizard', 'paper'];
+var rockLoses     = ['spock', 'paper'];  // if rock draws spock OR paper he loses
+var paperLoses    = ['lizard', 'scissors'];
+var scissorsLoses = ['rock', 'spock'];
+var lizardLoses   = ['rock', 'scissors'];
+var spockLoses    = ['lizard', 'paper'];
 
 // Main logic to determine Winner
 function calcWinner() {
-    if (human === 'rock' && inArray(computer, rock_loses)) {
+    if (human === 'rock' && inArray(computer, rockLoses)) {
         compScore += 1;
-    } else if (human === 'paper' && inArray(computer, paper_loses)) {
+    } else if (human === 'paper' && inArray(computer, paperLoses)) {
         compScore += 1;
-    } else if (human === 'scissors') {
+    } else if (human === 'scissors' && inArray(computer, scissorsLoses)) {
         compScore += 1;
-    } else if (human === 'lizard') {
+    } else if (human === 'lizard' && inArray(computer, lizardLoses)) {
         compScore += 1;
-    } else if (human === 'spock') {
+    } else if (human === 'spock' && inArray(computer, spockLoses)) {
         compScore += 1;
     } else {
         compScore += 0;
