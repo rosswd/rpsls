@@ -39,6 +39,7 @@ function inArray(needle, haystack) {
         haystack[i] === needle ? true : false;
         i++;
     }
+    return needle;
 }
 
 inArray(human, weapons);
@@ -58,7 +59,7 @@ var lizardLoses   = ['rock', 'scissors'];
 var spockLoses    = ['lizard', 'paper'];
 
 // Main logic to determine Winner
-function calcWinner() {
+function calcWinner(humanScore, compScore) {
     if (human === 'rock' && inArray(computer, rockLoses)) {
         compScore += 1;
     } else if (human === 'paper' && inArray(computer, paperLoses)) {
@@ -69,10 +70,13 @@ function calcWinner() {
         compScore += 1;
     } else if (human === 'spock' && inArray(computer, spockLoses)) {
         compScore += 1;
-    } else {
+    } else if (human === computer) {
         compScore += 0;
         humanScore += 0;
+    } else {
+        humanScore += 1;
     }
+    return [compScore, humanScore];
 }
 
 calcWinner();
