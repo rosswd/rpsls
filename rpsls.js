@@ -7,29 +7,49 @@
 var human    = prompt("Choose rock, paper, scissors, lizard or spock:");
 var computer = Math.random();
 var weapons  = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+
+// Declare score variables, set to 0
+var humanScore = 0;
+var compScore  = 0;
+
+// A message that will be output with the winning weapon's mantra
+// i.e. Paper covers Rock, Paper disproves Spock
+var mantra = '';
+
+// Regular expressions for sanitizing input
 var reDigit  = /\d/;
 var reChar   = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
 
-// Sanitize input
-if (human === '' || reDigit.exec(human) || reChar.exec(human)) {
-    alert("Invalid input - Page will now reload!");
-    window.location.reload();  // extreme, only temp
-} else {
-    human = human.toLowerCase();
+// Function to sanitize input for human player
+// player argument can be human or computer but right now
+// it is probably human
+function sanitizePlayerInput(player) {
+    if (player === '' || reDigit.exec(player) || reChar.exec(player) || typeof(player) !== "string") {
+        alert("Invalid input - Page will now reload!");
+        window.location.reload();  // extreme, only temp
+    } else {
+        player = player.toLowerCase() && human;
+    }
 }
 
-// Assign weapon to computer based on random value
-if (computer < 0.19) {
-    computer = 'rock';
-} else if (computer <= 0.38) {
-    computer = 'paper';
-} else if (computer <= 0.57) {
-    computer = 'scissors';
-} else if (computer <= 0.76) {
-    computer = 'lizard';
-} else {
-    computer = 'spock';
+sanitizePlayerInput(human);
+
+// Function to randomly assign weapon to computer
+function randomComputerChoice() {
+    if (computer < 0.19) {
+        computer = 'rock';
+    } else if (computer <= 0.38) {
+        computer = 'paper';
+    } else if (computer <= 0.57) {
+        computer = 'scissors';
+    } else if (computer <= 0.76) {
+        computer = 'lizard';
+    } else {
+        computer = 'spock';
+    }
 }
+
+randomComputerChoice();
 
 // Function to check that weapon choice is valid
 // Function to check losing combinations
@@ -47,9 +67,7 @@ inArray(human, weapons);
 // Announce weapons chosen with a summary
 alert("Human: " + human + "\n" + "Computer: " + computer);
 
-// Declare score variables, set to 0
-var humanScore = 0;
-var compScore  = 0;
+
 
 // Combinations where particular weapons lose
 var rockLoses     = ['spock', 'paper'];  // if rock draws spock OR paper he loses
