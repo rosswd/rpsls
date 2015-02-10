@@ -101,15 +101,17 @@ function calcWinner() {
 
 calcWinner();
 
-// Function to get final score
-function finalScore() {
+// Function to announce the final score
+var finalScore = function() {
     if (humanScore > compScore) {
         alert("User wins game!");
+        alert(mantra);
     } else if (humanScore === compScore) {
         alert("Game is tied");
     } else {
         alert("Computer wins");
+        alert(mantra);
     }
-}
+};
 
 finalScore();
