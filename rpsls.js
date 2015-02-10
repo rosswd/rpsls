@@ -51,25 +51,23 @@ function randomComputerChoice() {
 
 randomComputerChoice();
 
-// Function to check that weapon choice is valid
-// Function to check losing combinations
-function inArray(needle, haystack) {
-    var i = 0;
-    while (i < haystack.length) {
-        haystack[i] === needle ? true : false;
-        i++;
-    }
-    return needle;
-}
-
-inArray(human, weapons);
-
 // Announce weapons chosen with a summary
 alert("Human: " + human + "\n" + "Computer: " + computer);
 
+// Function to check if player has a winning combination in one
+// of the arrays that beats other player
+function findInArray(player, weaponsThatBeat) {
+    if (weaponsThatBeat.indexOf(player) >= 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-
-// Combinations where particular weapons lose
+/*
+ * Listed below are cases where a particular weapon is defeated.
+ *
+*/
 var rockLoses     = ['spock', 'paper'];  // if rock draws spock OR paper he loses
 var paperLoses    = ['lizard', 'scissors'];
 var scissorsLoses = ['rock', 'spock'];
