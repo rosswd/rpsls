@@ -74,25 +74,29 @@ var scissorsLoses = ['rock', 'spock'];
 var lizardLoses   = ['rock', 'scissors'];
 var spockLoses    = ['lizard', 'paper'];
 
-// Main logic to determine Winner
-function calcWinner(humanScore, compScore) {
-    if (human === 'rock' && inArray(computer, rockLoses)) {
+// Function to determine Winner
+function calcWinner() {
+    if ( human === 'rock' && findInArray(computer, rockLoses) ) {
+        mantra = "Remember: Rock crushes Scissors, Rock crushes Lizard";
         compScore += 1;
-    } else if (human === 'paper' && inArray(computer, paperLoses)) {
+    } else if ( human === 'paper' && findInArray(computer, paperLoses) ) {
+      mantra = "Remember: Paper covers Rock, Paper disproves Spock";
         compScore += 1;
-    } else if (human === 'scissors' && inArray(computer, scissorsLoses)) {
+    } else if ( human === 'scissors' && findInArray(computer, scissorsLoses) ) {
+        mantra = "Remember: Scissors decapitates Lizard, Scissors cuts Paper";
         compScore += 1;
-    } else if (human === 'lizard' && inArray(computer, lizardLoses)) {
+    } else if ( human === 'lizard' && findInArray(computer, lizardLoses) ) {
+      mantra = "Remember: Lizard eats Paper, Lizard poisons Spock";
         compScore += 1;
-    } else if (human === 'spock' && inArray(computer, spockLoses)) {
+    } else if ( human === 'spock' && findInArray(computer, spockLoses) ) {
+        mantra = "Remember: Spock vaporizes Rock, Spock smashses Scissors";
         compScore += 1;
     } else if (human === computer) {
-        compScore += 0;
+        compScore  += 0;
         humanScore += 0;
     } else {
         humanScore += 1;
     }
-    return [compScore, humanScore];
 }
 
 calcWinner();
