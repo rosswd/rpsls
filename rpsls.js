@@ -56,7 +56,7 @@ alert("Human: " + human + "\n" + "Computer: " + computer);
 
 // Function to check if player has a winning combination in one
 // of the arrays that beats other player
-function findInArray(player, weaponsThatBeat) {
+function findWinner(player, weaponsThatBeat) {
     if (weaponsThatBeat.indexOf(player) >= 0) {
         return true;
     } else {
@@ -68,7 +68,7 @@ function findInArray(player, weaponsThatBeat) {
  * Listed below are cases where a particular weapon is defeated.
  *
 */
-var rockLoses     = ['spock', 'paper'];  // if rock draws spock OR paper he loses
+var rockLoses     = ['spock', 'paper'];  // if rock draws against spock OR paper he loses
 var paperLoses    = ['lizard', 'scissors'];
 var scissorsLoses = ['rock', 'spock'];
 var lizardLoses   = ['rock', 'scissors'];
@@ -76,19 +76,19 @@ var spockLoses    = ['lizard', 'paper'];
 
 // Function to determine Winner
 function calcWinner() {
-    if ( human === 'rock' && findInArray(computer, rockLoses) ) {
+    if ( human === 'rock' && findWinner(computer, rockLoses) ) {
         mantra = "Remember: Rock crushes Scissors, Rock crushes Lizard";
         compScore += 1;
-    } else if ( human === 'paper' && findInArray(computer, paperLoses) ) {
+    } else if ( human === 'paper' && findWinner(computer, paperLoses) ) {
       mantra = "Remember: Paper covers Rock, Paper disproves Spock";
         compScore += 1;
-    } else if ( human === 'scissors' && findInArray(computer, scissorsLoses) ) {
+    } else if ( human === 'scissors' && findWinner(computer, scissorsLoses) ) {
         mantra = "Remember: Scissors decapitates Lizard, Scissors cuts Paper";
         compScore += 1;
-    } else if ( human === 'lizard' && findInArray(computer, lizardLoses) ) {
+    } else if ( human === 'lizard' && findWinner(computer, lizardLoses) ) {
       mantra = "Remember: Lizard eats Paper, Lizard poisons Spock";
         compScore += 1;
-    } else if ( human === 'spock' && findInArray(computer, spockLoses) ) {
+    } else if ( human === 'spock' && findWinner(computer, spockLoses) ) {
         mantra = "Remember: Spock vaporizes Rock, Spock smashses Scissors";
         compScore += 1;
     } else if (human === computer) {
