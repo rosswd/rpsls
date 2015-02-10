@@ -4,7 +4,7 @@
 */
 
 // Players and Weapons
-var human    = prompt("Choose rock, paper, scissors, lizard or spock:");
+var human    = prompt("Choose rock, paper, scissors, lizard or spock:", "rock");
 var computer = Math.random();
 var weapons  = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
