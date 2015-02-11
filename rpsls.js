@@ -12,7 +12,7 @@ var weapons  = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 var humanScore = 0;
 var compScore  = 0;
 
-// A message that will be output with the winning weapon's mantra
+// A message that will be output with the losing weapon's mantra
 // i.e. Paper covers Rock, Paper disproves Spock
 var mantra = '';
 
@@ -24,7 +24,8 @@ var reChar   = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
 // player argument can be human or computer but right now
 // it is probably human
 function sanitizePlayerInput(player) {
-    if (player === '' || reDigit.exec(player) || reChar.exec(player) || typeof(player) !== "string") {
+    if (player === '' || reDigit.exec(player) || reChar.exec(player) || 
+            typeof(player) !== "string") {
         alert("Invalid input - Page will now reload!");
         window.location.reload();  // extreme, only temp
     } else {
